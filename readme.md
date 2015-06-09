@@ -4,6 +4,11 @@
 ## Background
 Today we’re going to build an *engine* to support “choose your own adventure” games. Writing this engine will give us practice building an object oriented piece of software. Let’s have a look at what playing a game with this engine looks like.
 
+Before you do anything
+
+1) clone this repo to your computer
+2) run `npm install` from with in the folder
+
 ## Example Game
 ```
 
@@ -27,9 +32,12 @@ Checkout `game.source.js` in the main folder for an example game. See if you can
 
 Systems like the one we’re building are often called _State Machines_. Some of you may have studied these in school. For your benefit, take a minute to watch [this video](https://www.youtube.com/watch?v=-Yicg2TTMPs).
 
+## Test specs
+To help you, we’ve written some test specs much like the ones you worked with in Test-First. You can run `npm test` to see the test suite run. To look at the specs, check out the `test` folder.
+
 ## Components
 
-We’re going to build this engine with several suggested components. Here are some notes about them.
+We’re going to build this engine with several suggested components. We’ve set up files for each one in this project. We also wired them up to talk to each other. Here are some notes about them.
 
 - Node: A node is a single question or prompt. Not to be confused with the technology _node.js_ which we are also studying at Fullstack. This is particularly confusing because we have a file called `node.js` in this project, and because this project is _built_ in node.
 - Connection: Connections are objects that represent the circumstances under which our game changes from one state to another. For the question “Would you like a cookie?” the connections might have the conditions “yes” and “no.”
