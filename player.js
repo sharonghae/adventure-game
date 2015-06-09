@@ -18,13 +18,8 @@ var play = function(node) {
     choices: choices
   }], function(answers) {
     var answer = answers[node.title]
-    var nextNode = node.route(answer)
-    if(!nextNode) {
-      // console.log(nextNode.text)
-      // console.log('game over!')
-    } else {
-      play(nextNode)
-    }
+    var nextNode = node.route(answer)    
+    play(nextNode)
   })
 }
 
