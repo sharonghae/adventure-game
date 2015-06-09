@@ -1,4 +1,7 @@
+var Node = require('./node')
+
 var Game = function() {
+  this.startingPoint = null
   this.nodes = {}
 }
 
@@ -7,8 +10,10 @@ Game.prototype.hasNode = function(title) {
 }
 
 Game.prototype.addNode = function(title, text) {
-  if(this.hasNode(title)) throw new Error('a node with the title' + title + 'already exists')
+  if(this.hasNode(title)) throw new Error('a node with the title ' + title + ' already exists')
   this.nodes[title] = new Node(title, text)
+  if(!this.startingPoint) this.startingPoint = this.nodes[title]
+  return this.nodes[title]
 }
 
 Game.prototype.getNode = function(title) {
