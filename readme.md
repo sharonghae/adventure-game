@@ -6,8 +6,8 @@ Today we’re going to build an *engine* to support “choose your own adventure
 
 Before you do anything
 
-1) clone this repo to your computer
-2) run `npm install` from with in the folder
+* clone this repo to your computer
+* run `npm install` from with in the folder
 
 ## Example Game
 ```
