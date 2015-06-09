@@ -9,6 +9,8 @@ Before you do anything
 * clone this repo to your computer
 * run `npm install` from with in the folder
 
+When we’re done with the project, you can play a game by running `node player`
+
 ## Example Game
 ```
 

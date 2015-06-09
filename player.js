@@ -2,25 +2,13 @@ var inquirer = require('inquirer')
 
 var game = require('./game.source')
 
-var currentNode = game.startingPoint
+/*
 
-var play = function(node) {
+This file has no test specs. It might be a tricky one. You need to look at 
+the docs for the inquirer npm package, and see if you can figure out how 
+to make the game run!
 
-  var choices = node.getConnectionStrings()
+If you're running out of time, check out my solution to the problem:
+https://gist.github.com/zekenie/e90faf30a789d65c6459
 
-  // we've reached a terminal node
-  if(!choices.length) return console.log(node.text)
-
-  inquirer.prompt([{
-    type: 'list',
-    name: node.title,
-    message: node.text,
-    choices: choices
-  }], function(answers) {
-    var answer = answers[node.title]
-    var nextNode = node.route(answer)    
-    play(nextNode)
-  })
-}
-
-play(currentNode)
+*/

@@ -13,7 +13,7 @@ describe('Node', function() {
   })
 
   it('starts with an empty connections array', function() {
-    expect(new Node().connections).to.be.empty
+    expect(new Node().connections).to.eql([])
   })
 
   // now, let's describe how we can wire up nodes 
