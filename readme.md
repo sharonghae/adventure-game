@@ -45,4 +45,4 @@ We’re going to build this engine with several suggested components. We’ve se
 - Connection: Connections are objects that represent the circumstances under which our game changes from one state to another. For the question “Would you like a cookie?” the connections might have the conditions “yes” and “no.”
 - Game: The game is what holds everything together. Its the interface that a game programer would use to construct these games. It exposes methods like `addNode` and `connect`. It keeps track of all the nodes in a javascript object.
 - Player: This is a component that is basically the “user interface” if we can call it that. It works with an npm package to present the current question to the user. 
-- Game source: This is a file that uses the game class to build a game.
+- Game source: This is a file that uses the game class to build a game. 
