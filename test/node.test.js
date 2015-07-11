@@ -1,5 +1,5 @@
-var expect = require('chai').expect
-var Node = require('../node')
+var expect = require('chai').expect;
+var Node = require('../node');
 
 describe('Node', function() {
 
