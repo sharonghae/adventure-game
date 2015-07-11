@@ -1,6 +1,6 @@
-var inquirer = require('inquirer')
+var inquirer = require('inquirer');
 
-var game = require('./game.source')
+var game = require('./game.source');
 
 /*
 
