@@ -80,7 +80,7 @@ describe('Game', function() {
 
     it('throws an error if it cannot find the node', function() {
       expect(function() {
-        game.connect('asdf', 'fdsa')
+        game.connect('asdf', 'fdsa', 'some condition')
       }).to.throw(Error)
     })
 
