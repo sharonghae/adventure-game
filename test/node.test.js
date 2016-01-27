@@ -45,6 +45,8 @@ describe('Node', function() {
       node1.connect(node2, 'a')
       expect(function() {
         node1.connect(new Node(), 'a')
+        // in this instance .connect should throw an instance of an Error object
+        // read more about the Error constructor here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
       }).to.throw(Error)
 
     })

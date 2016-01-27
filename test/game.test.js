@@ -27,6 +27,8 @@ describe('Game', function() {
       expect(function() {
         game.addNode('foo', 'bar')
         game.addNode('foo', 'could be different bar')
+        // in this instance the second .addNode should throw an instance of an Error object
+        // read more about the Error constructor here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
       }).to.throw(Error)
     })
 
