@@ -1,4 +1,4 @@
-# Choose your own adstackture
+# Build Your Own Adventure
 
 
 ## Background
@@ -9,7 +9,15 @@ Before you do anything
 * clone this repo to your computer
 * run `npm install` from with in the folder
 
-When we’re done with the project, you can play a game by running `node player`
+To help you progress, we’ve written some test specs much like the ones you worked with in Test-First. You can run `npm test` to see the test suite run. To look at the specs source code, check out the `test` folder. We recommend you start by going through the specs in `node.test.js`, then `connection.test.js`, and then `game.test.js`.
+
+Once you're through with all the specs, you can start building out `player.js`. The job of this file is to pull in the game source and tie it together with the `inquirer` library so that you if you run...
+
+```bash
+node player
+```
+
+...it will commence a command line interface for the game specified in `game.source.js`.
 
 ## Example Game
 ```
@@ -33,9 +41,6 @@ Checkout `game.source.js` in the main folder for an example game. See if you can
 ## The State Machine
 
 Systems like the one we’re building are often called _State Machines_. Some of you may have studied these in school. For your benefit, take a minute to watch [this video](https://www.youtube.com/watch?v=-Yicg2TTMPs).
-
-## Test specs
-To help you, we’ve written some test specs much like the ones you worked with in Test-First. You can run `npm test` to see the test suite run. To look at the specs, check out the `test` folder.
 
 ## Components
 
