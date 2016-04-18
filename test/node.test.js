@@ -33,14 +33,6 @@ describe('Node', function() {
       expect(node1.connections).to.have.length(1)
     })
 
-    it('it routes properly with the correct input', function() {
-      expect(node1.route('under some circumstance')).to.equal(node2)
-    })
-
-    it('doesn\'t route to any node if the condition doesn\'t match', function() {
-      expect(node1.route('foobar')).to.be.undefined
-    })
-
     it('does not allow multiple connections with the same condition', function() {
       node1.connect(node2, 'a')
       expect(function() {
@@ -52,35 +44,4 @@ describe('Node', function() {
     })
 
   })
-
-  // this next section should be taken AS A SUGGESTION
-  // you don't NEED to impliment this to make the 
-  // program work. However, it might help keep you 
-  // organized. Then again, yolo.
-  describe('helpers', function() {
-    describe('getConnectionStrings', function() {
-      // to run this test, take out the `x` in front of `it`
-      it('returns an array of strings from the connection conditions', function() {
-        var node1 = new Node()
-        var node2 = new Node()
-        var node3 = new Node()
-        node1.connect(node2, 'a')
-        node1.connect(node3, 'b')
-        expect(node1.getConnectionStrings()).to.eql(['a','b'])
-      })
-    })
-
-    describe('hasConnectionCondition', function() {
-      it('determines when the condition has been regestered', function() {
-        var node1 = new Node()
-        var node2 = new Node()
-
-        node1.connect(node2, 'foo')
-        expect(node1.hasConnectionCondition('foo')).to.be.true
-        expect(node1.hasConnectionCondition('bar')).to.be.false
-      })
-    })
-  })
-
-
 })

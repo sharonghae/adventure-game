@@ -9,25 +9,16 @@ describe('Connection', function() {
     aNode = new Node()
   })
 
-  it('adopts nextNode and condition from constructor parameters', function() {
+  it('adopts value and name from constructor parameters', function() {
     var someConnection = new Connection(aNode, 'foo')
-    expect(someConnection.nextNode).to.equal(aNode)
-    expect(someConnection.condition).to.equal('foo')
+    expect(someConnection.value).to.equal(aNode)
+    expect(someConnection.name).to.equal('foo')
   })
 
-  it('tests true when the connection has no condition', function() {
-    var someConnection = new Connection(aNode)
-    expect(someConnection.test('any value... anything')).to.be.true
+  it('has name, value, and short (which is just name)', function() {
+    var someConnection = new Connection(aNode, 'foo')
+    expect(someConnection.value).to.equal(aNode)
+    expect(someConnection.name).to.equal('foo')
+    expect(someConnection.short).to.equal('foo')
   })
-
-  it('tests true when the input matches the condition', function() {
-    var someConnection = new Connection(aNode, 'fluf cats')
-    expect(someConnection.test('fluf cats')).to.be.true
-  })
-
-  it('tests false when the input does not match the condition', function() {
-    var someConnection = new Connection(aNode, 'fluf cats')
-    expect(someConnection.test('foo dogs')).to.be.false
-  })
-
 })
