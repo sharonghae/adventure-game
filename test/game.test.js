@@ -85,7 +85,5 @@ describe('Game', function() {
         game.connect('asdf', 'fdsa', 'some condition')
       }).to.throw(Error)
     })
-
-
   })
 })
