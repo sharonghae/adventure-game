@@ -1,5 +1,6 @@
 var expect = require('chai').expect;
 var Node = require('../node');
+var Connection = require('../connection');
 
 describe('Node', function() {
 
@@ -16,28 +17,55 @@ describe('Node', function() {
     expect(new Node().connections).to.eql([])
   })
 
+  it('starts with an empty conditions object', function() {
+    expect(new Node().conditions).to.eql({})
+  })
+
   // now, let's describe how we can wire up nodes 
   // and then test if we switch from one node to 
   // another with a certain input
 
-  describe('connections', function() {
+  describe('connect(destination: Node, condition: String)', function() {
     //first let's make two nodes
-    var node1, node2
+    var hallway, basement
     before(function() {
-      node1 = new Node()
-      node2 = new Node()
-      node1.connect(node2, 'under some circumstance')
+      hallway = new Node('the hall', "There's a creaky door leading down.")      
+      basement = new Node('the basement', "It's quite a bit darker down here than you thought possible.")
+      hallway.connect(basement, 'Walk through the door')
     })
 
-    it('adds a connection to the node\'s connection array with #connect', function() {
-      expect(node1.connections).to.have.length(1)
+    it("adds a new connection to the node's connections array", function() {
+      expect(hallway.connections).to.have.length(1)
+      expect(hallway.connections[0]).to.be.instanceOf(Connection)
     })
+
+    it("adds that same connection to the node's conditions object, with the condition as the key", function() {
+      expect(hallway.conditions).to.eql({'Walk through the door': hallway.connections[0]})
+    })
+
+    describe('the connection it adds', function() {
+      var connection
+
+      before(function() { connection = hallway.connections[0] })
+
+      it("has a name equal to the condition", function() {
+        expect(connection.name).to.equal("Walk through the door")
+      })    
+
+      it("has a value equal to the destination node", function() {
+        expect(connection.value).to.equal(basement)
+      })
+    });
 
     it('does not allow multiple connections with the same condition', function() {
-      node1.connect(node2, 'a')
+      var livingRoom = new Node('the living room',
+                                "Tastefully decorated, with an ominous feeling rising from below")
+      hallway.connect(livingRoom, 'Go back to the living room')
       expect(function() {
-        node1.connect(new Node(), 'a')
-        // in this instance .connect should throw an instance of an Error object
+        hallway.connect(new Node(), 'Go back to the living room')
+        // The condition "Go back to the living room" already exists.
+        //
+        // connect should throw an instance of an Error object
         // read more about the Error constructor here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
       }).to.throw(Error)
 
