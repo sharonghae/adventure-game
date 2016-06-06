@@ -12,6 +12,6 @@ to make the game run!
 
 If you're running out of time, check out our solution to the problem:
 
-https://gist.github.com/queerviolet/7d9fb275b292b062fa5b9b4c99eda77d
+https://gist.github.com/joedotjs/ae54507f758988222ce1c80fc3ba83e2
 
 **/
