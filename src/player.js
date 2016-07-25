@@ -1,8 +1,8 @@
-"use strict";
+'use strict'
 
-var inquirer = require('inquirer');
+var inquirer = require('inquirer')
 
-var game = require('./game.source');
+var game = require('../example/example.game')
 
 /**
 
@@ -22,21 +22,19 @@ function play(node) {
   if (/*Some truthy expression*/) {
     // Your code here
 
-    return Promise.resolve(); // Don't worry about this, we will look more into Promise later on
+    return Promise.resolve() // Don't worry about this, we will look more into Promise later on
   }
 
   // Recursive case
-  return inquirer.prompt({/*Inquirer question object*/})
+  return inquirer.prompt([{/*Inquirer question object*/}])
   .then(function (answer) {
-      /*
-        What is in the answer we are returned that we can use? Try logging it out!
-        How can we use this value to continue the game? Write your code below
-      */
+    // What is in the answer we are returned that we can use? Try logging it out!
+    // How can we use this value to continue the game? Write your code below
 
-  });
+  })
 }
 
 play(game.startingPoint)
 .then(function () {
-console.log('Game over.'); // This will run after the Promise.resolve() method is called
-});
+  console.log('Game over.') // This will run after the Promise.resolve() method is called
+})

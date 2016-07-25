@@ -1,11 +1,11 @@
-var expect = require('chai').expect;
-var Node = require('../node');
-var Connection = require('../connection');
+var expect = require('chai').expect
+var Node = require('../src/node')
+var Connection = require('../src/connection')
 
 describe('Node', function() {
 
-  // first let's just set up some basic assertions
-  // about how the "Node" class works
+  // first let's just set up some basic assertions about
+  // how the "Node" class works
 
   it('adopts title and text from constructor parameters', function() {
     var myNode = new Node('some title', 'some text')
@@ -21,12 +21,11 @@ describe('Node', function() {
     expect(new Node().conditions).to.eql({})
   })
 
-  // now, let's describe how we can wire up nodes
-  // and then test if we switch from one node to
-  // another with a certain input
+  // now, let's describe how we can wire up nodes, and then test if
+  // we switch from one node to another based on input
 
   describe('connect', function() {
-    //first let's make two nodes
+    // first we make two nodes
     var hallway, basement
     before(function() {
       hallway = new Node('the hall', "There's a creaky door leading down.")
@@ -48,18 +47,17 @@ describe('Node', function() {
 
       before(function() { connection = hallway.connections[0] })
 
-      it("has a name equal to the condition", function() {
-        expect(connection.name).to.equal("Walk through the door")
+      it('has a name equal to the condition', function() {
+        expect(connection.name).to.equal('Walk through the door')
       })
 
-      it("has a value equal to the destination node", function() {
+      it('has a value equal to the destination node', function() {
         expect(connection.value).to.equal(basement)
       })
-    });
+    })
 
     it('does not allow multiple connections with the same condition', function() {
-      var livingRoom = new Node('the living room',
-                                "Tastefully decorated, with an ominous feeling rising from below")
+      var livingRoom = new Node('the living room', 'Tastefully decorated, with an ominous feeling rising from below')
       hallway.connect(livingRoom, 'Go back to the living room')
       expect(function() {
         hallway.connect(new Node(), 'Go back to the living room')

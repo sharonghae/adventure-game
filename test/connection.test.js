@@ -1,6 +1,6 @@
 var expect = require('chai').expect
-var Connection = require('../connection')
-var Node = require('../node')
+var Connection = require('../src/connection')
+var Node = require('../src/node')
 
 describe('Connection', function() {
   var aNode

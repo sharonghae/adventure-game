@@ -1,11 +1,12 @@
+/* eslint-disable no-unused-expressions, dot-notation */
 var expect = require('chai').expect
-var Game = require('../game')
-var Node = require('../node')
+var Game = require('../src/game')
+var Node = require('../src/node')
 
 // To start these specs, remove the x from xdescribe
 xdescribe('Game', function() {
 
-  var game;
+  var game
   beforeEach(function() {
     game = new Game()
   })
@@ -20,7 +21,7 @@ xdescribe('Game', function() {
 
   describe('addNode', function() {
     it('adds the node to an internal nodes object', function() {
-      game.addNode('fo','fo text')
+      game.addNode('fo', 'fo text')
       expect(game.nodes.fo).to.be.instanceOf(Node)
     })
 
@@ -36,17 +37,17 @@ xdescribe('Game', function() {
     it('returns the node that was added', function() {
       // we need to return the Node that was added
       // to make things easier later on
-      expect(game.addNode('fluf','cats')).to.be.instanceOf(Node)
+      expect(game.addNode('fluf', 'cats')).to.be.instanceOf(Node)
     })
 
     it('sets the starting point if it does not already exist', function() {
-      expect(game.startingPoint).to.be.null;
+      expect(game.startingPoint).to.be.null
 
       var shouldBeFirst = game.addNode('whatever', 'whatever')
       var shouldBeSecond = game.addNode('foo', 'bar')
 
       expect(game.startingPoint).to.equal(shouldBeFirst)
-      expect(game.nodes['foo']).to.be.ok;
+      expect(game.nodes['foo']).to.be.ok
     })
   })
 
@@ -69,7 +70,7 @@ xdescribe('Game', function() {
 
     // all we want to do is assert that the Node class gets a message
     // from the Game class.
-    it('calls the first node\'s connect method', function() {
+    it("calls the first node's connect method", function() {
       var node1 = game.addNode('foo1', 'bar1')
       game.addNode('foo2', 'bar2')
 

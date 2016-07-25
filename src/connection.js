@@ -1,5 +1,5 @@
 var Connection = function(nextNode, condition) {
 
-};
+}
 
-module.exports = Connection;
+module.exports = Connection
