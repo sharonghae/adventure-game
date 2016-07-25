@@ -15,3 +15,28 @@ If you're running out of time, check out our solution to the problem:
 https://gist.github.com/joedotjs/ae54507f758988222ce1c80fc3ba83e2
 
 **/
+
+function play(node) {
+
+  // Base case
+  if (/*Some truthy expression*/) {
+    // Your code here
+
+    return Promise.resolve(); // Don't worry about this, we will look more into Promise later on
+  }
+
+  // Recursive case
+  return inquirer.prompt({/*Inquirer question object*/})
+  .then(function (answer) {
+      /*
+        What is in the answer we are returned that we can use? Try logging it out!
+        How can we use this value to continue the game? Write your code below
+      */
+
+  });
+}
+
+play(game.startingPoint)
+.then(function () {
+console.log('Game over.'); // This will run after the Promise.resolve() method is called
+});

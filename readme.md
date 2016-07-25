@@ -50,10 +50,8 @@ We’re going to build this engine with several suggested components. We’ve se
 
 ## Order
 
-We recommend you go through the specs in the following order:
-- test/node.test.js
-- test/connection.test.js
-- test/game.test.js
+We recommend you start by working through the specs in `node.test.js` and `connection.test.js`. Then, work through the `game.test.js` specs.
+
 
 Once you're all done with those you can start working on `player.js`. At this point, the `Game` class should work as expected but has not yet been "plugged in" to work with a command line interface. There will be no specs for this final part. Instead, try to combine how `Game` instances work with how the [`inquirer`](https://www.npmjs.com/package/inquirer) library works. You will know everything is working if you can run `node player.js` to begin the command-line-choose-your-own-adventure example game.
 

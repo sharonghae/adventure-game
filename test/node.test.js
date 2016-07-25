@@ -4,7 +4,7 @@ var Connection = require('../connection');
 
 describe('Node', function() {
 
-  // first let's just set up some basic assertions 
+  // first let's just set up some basic assertions
   // about how the "Node" class works
 
   it('adopts title and text from constructor parameters', function() {
@@ -21,15 +21,15 @@ describe('Node', function() {
     expect(new Node().conditions).to.eql({})
   })
 
-  // now, let's describe how we can wire up nodes 
-  // and then test if we switch from one node to 
+  // now, let's describe how we can wire up nodes
+  // and then test if we switch from one node to
   // another with a certain input
 
-  describe('connect(destination: Node, condition: String)', function() {
+  describe('connect', function() {
     //first let's make two nodes
     var hallway, basement
     before(function() {
-      hallway = new Node('the hall', "There's a creaky door leading down.")      
+      hallway = new Node('the hall', "There's a creaky door leading down.")
       basement = new Node('the basement', "It's quite a bit darker down here than you thought possible.")
       hallway.connect(basement, 'Walk through the door')
     })
@@ -50,7 +50,7 @@ describe('Node', function() {
 
       it("has a name equal to the condition", function() {
         expect(connection.name).to.equal("Walk through the door")
-      })    
+      })
 
       it("has a value equal to the destination node", function() {
         expect(connection.value).to.equal(basement)

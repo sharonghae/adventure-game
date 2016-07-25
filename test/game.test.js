@@ -2,7 +2,8 @@ var expect = require('chai').expect
 var Game = require('../game')
 var Node = require('../node')
 
-describe('Game', function() {
+// To start these specs, remove the x from xdescribe
+xdescribe('Game', function() {
 
   var game;
   beforeEach(function() {
@@ -23,7 +24,7 @@ describe('Game', function() {
       expect(game.nodes.fo).to.be.instanceOf(Node)
     })
 
-    it('throws an error if you try to regester two nodes with the same name', function() {
+    it('does not allow you to register two nodes with the same title', function() {
       expect(function() {
         game.addNode('foo', 'bar')
         game.addNode('foo', 'could be different bar')
@@ -33,20 +34,23 @@ describe('Game', function() {
     })
 
     it('returns the node that was added', function() {
-      // we need to return the Node that was added to make things 
-      // easier later on
+      // we need to return the Node that was added
+      // to make things easier later on
       expect(game.addNode('fluf','cats')).to.be.instanceOf(Node)
     })
 
-    it('sets the starting point the first time addnode is called', function() {
+    it('sets the starting point if it does not already exist', function() {
+      expect(game.startingPoint).to.be.null;
+
       var shouldBeFirst = game.addNode('whatever', 'whatever')
       var shouldBeSecond = game.addNode('foo', 'bar')
 
       expect(game.startingPoint).to.equal(shouldBeFirst)
+      expect(game.nodes['foo']).to.be.ok;
     })
   })
 
-  describe('get node', function() {
+  describe('getNode', function() {
     it('gets a node from the nodes object by name', function() {
       game.addNode('foo', 'some text')
       expect(game.getNode('foo')).to.be.instanceOf(Node)
@@ -61,23 +65,23 @@ describe('Game', function() {
 
     // We're doing this because we want to test that Game class
     // calls the connect method on the node class, but we don't
-    // really want to test the Node class in this spec. 
+    // really want to test the Node class in this spec.
 
     // all we want to do is assert that the Node class gets a message
     // from the Game class.
-    it('calls connect on the first node', function() {
+    it('calls the first node\'s connect method', function() {
       var node1 = game.addNode('foo1', 'bar1')
       game.addNode('foo2', 'bar2')
 
       // here we're *overwriting* node1's connect method.
       // this is so we can test if its been called!
-      var connectHasBeenCalled = false
+      var nodeConnectHasBeenCalled = false
       node1.connect = function() {
-        connectHasBeenCalled = true
+        nodeConnectHasBeenCalled = true
       }
 
-      game.connect('foo1', 'foo2')
-      expect(connectHasBeenCalled).to.be.true
+      game.connect('foo1', 'foo2', 'some condition')
+      expect(nodeConnectHasBeenCalled).to.be.true
     })
 
     it('throws an error if it cannot find the node', function() {
