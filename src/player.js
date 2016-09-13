@@ -37,7 +37,7 @@ function play(node) {
   .then(function (answer) {
     //console.log(answer);
    // var nextNode = node.conditions[answer[node.title]].value;
-    play(answer.node);
+    return play(answer.node);
     
     // What is in the answer we are returned that we can use? Try logging it out!
     // How can we use this value to continue the game? Write your code below

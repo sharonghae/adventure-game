@@ -6,7 +6,7 @@ var Game = function() {
 }
 
 Game.prototype.addNode = function(nodeName, nodeText) {
-	if(this.nodes[nodeNames])
+	if(this.nodes[nodeName])
 		throw new Error("Error");
 	// //for(var key in this.nodes){
 	// 	if(key === nodeName){
